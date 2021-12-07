@@ -64,16 +64,22 @@ For exploratory data analysis, we check the distribution of data using histogram
 
 A subsequent Box-Cox transformation tackles the skewness dilemma.
 
+The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
+
+<p align = "center">
+  <img src="images/sample_ACF.png">
+</p>
+
 First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary (continuous compound returns):
 
 <p align = "center">
   <img src="images/differencing_ltc.png">
 </p>
 
-The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
+Volatility shocks are calculated by the standard deviation of the return over annualized time:
 
 <p align = "center">
-  <img src="images/sample_ACF.png">
+  <img src="images/annualized_volatility.png">
 </p>
 
 The following models are used:
