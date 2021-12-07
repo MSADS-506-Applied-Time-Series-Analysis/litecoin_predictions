@@ -2,6 +2,10 @@
   <img src="litecoin-ltc-logo.png" = width="100" height="100">
 </p>
 
+<p align = "center">
+  <img src="ltc_adj.png">
+</p>
+
 <div class="row">
   <div class="column">
     <img src="ltc_forecast" alt="" style="width:100%">
