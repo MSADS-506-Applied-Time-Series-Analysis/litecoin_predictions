@@ -55,5 +55,8 @@ For exploratory data analysis, we check the distribution of data using histogram
 
 <p align = "center">
   <img src="ltc_hist.png">
-  <img src="ltc_boxplots.png">
 </p>
+
+<p align = "center">
+  <img src="ltc_boxplots.png">
+  </p>
