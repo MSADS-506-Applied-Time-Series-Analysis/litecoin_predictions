@@ -3,7 +3,7 @@
 </p>
 
 <p align = "center">
-  <img src="images/ltc_adj.gif", = width="800" height="400">
+  <img src="images/ltc_adj.gif", = width="1000" height="400">
 </p>
 
 # Litecoin Cryptocurrency Forecast – Variations on the Autoregressive Moving Average Model: A Time Series Analysis
