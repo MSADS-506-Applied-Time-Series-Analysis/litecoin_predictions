@@ -2,10 +2,7 @@
 title: "Appendix"
 author: ""
 date: ""
-output:
-  pdf_document: default
-  github_document:
-    df_print: paged
+output: github_document
 urlcolor: blue
 ---
   
