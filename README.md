@@ -67,7 +67,7 @@ A subsequent Box-Cox transformation tackles the skewness dilemma.
 The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
 
 <p align = "center">
-  <img src="images/sample_acf.png">
+  <img src="images/acf.png">
 </p>
 
 First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary (continuous compound returns):
