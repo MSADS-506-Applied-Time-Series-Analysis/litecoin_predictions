@@ -67,7 +67,7 @@ A subsequent Box-Cox transformation tackles the skewness dilemma.
 First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary, looking at adjusted returns.
 
 <p align = "center">
-  <img src="differencing_ltc.png">
+  <img src="images/differencing_ltc.png">
 </p>
 
 The following models are used:
