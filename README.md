@@ -45,3 +45,15 @@ After being founded in 2011 by Charlie Lee as a peer-to-peer digital currency, L
 * Source: [https://finance.yahoo.com/quote/LTC-USD/history?p=LTC-USD](https://finance.yahoo.com/quote/LTC-USD/history?p=LTC-USD)
 
 While the dataset is readily available through Yahoo Finance, we use the quantmod package to access it in R. 
+
+### Project Description
+
+The data is presented as a time series object which is subsequently converted into a data frame and assigned to its own unique variable. The dataset contains 2,632 rows, representing the date range of September 17, 2014 through November 30, 2021, and 6 columns (variables), corresponding to open, high, low, close (adjusted prices), and volume.
+
+**Data Analysis, Visualization, and Modeling**  
+For exploratory data analysis, we check the distribution of data using histograms and boxplots as follows.
+
+<p align = "center">
+  <img src="ltc_hist.png">
+  <img src="ltc_boxplots.png">
+</p>
