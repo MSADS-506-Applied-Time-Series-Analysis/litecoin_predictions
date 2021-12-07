@@ -44,7 +44,7 @@ After being founded in 2011 by Charlie Lee as a peer-to-peer digital currency, L
 ### Dataset
 * Source: [https://finance.yahoo.com/quote/LTC-USD/history?p=LTC-USD](https://finance.yahoo.com/quote/LTC-USD/history?p=LTC-USD)
 
-While the dataset is readily available through Yahoo Finance, we use the quantmod package to access it in R. 
+While the dataset is readily available through Yahoo Finance, we use the `quantmod` package to access it in R. 
 
 ### Project Description
 
@@ -57,3 +57,30 @@ For exploratory data analysis, we check the distribution of data using histogram
   <img src="ltc_hist.png">
   <img src="ltc_boxplots.png">
 </p>
+
+A subsequent Box-Cox transformation tackles the skewness dilemma.
+
+The following models are used:
+* ARIMA(3,1,3)
+* GARCH(1,1)
+
+The visualizations for the models include: 
+* Histograms
+* Boxplots
+* Scree plot
+* Time Series Plots
+* Periodograms
+
+Roadblocks/ Challenges
+* More data would only stand to benefit the analytics framework.
+* Additional GARCH modeling should lend itself to a more robust analysis, whereby at least a one-step ahead forecast can be made.
+
+### License
+MIT License  
+Copyright (c) 2018  
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### Acknowledgements
+Thank you Professors Erin Cooke and Rick Sanchez for your guidance in facilitating this project. Moreover, thank you to everyone involved as contributors to this repository.
