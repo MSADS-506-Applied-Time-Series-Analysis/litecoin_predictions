@@ -1,9 +1,9 @@
 <p align = "center">
-  <img src="images/ltc_logo.png", width="150" height="150">
+  <img src="images/ltc_logo.png" width="150" height="150">
 </p>
 
 <p align = "center">
-  <img src="images/ltc_adj.gif", width="800", height="500">
+  <img src="images/ltc_adj.gif" width="800" height="500">
 </p>
 
 
