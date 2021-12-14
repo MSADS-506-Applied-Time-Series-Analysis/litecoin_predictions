@@ -1,12 +1,11 @@
 <p align = "center">
-  <img src="litecoin-ltc-logo.png" = width="100" height="100">
+  <img src="images/litecoin-ltc-logo.png" = width="100" height="100">
 </p>
 
-<div class="row">
-  <div class="column">
-    <img src="ltc_forecast" alt="" style="width:100%">
-  </div>
-</div>
+<p align = "center">
+  <img src="images/ltc_adj.gif">
+</p>
+
 
 # Litecoin Cryptocurrency Forecast – Variations on the Autoregressive Moving Average Model: A Time Series Analysis
 
@@ -54,11 +53,29 @@ The data is presented as a time series object which is subsequently converted in
 For exploratory data analysis, we check the distribution of data using histograms and boxplots as follows.
 
 <p align = "center">
-  <img src="ltc_hist.png">
-  <img src="ltc_boxplots.png">
+  <img src="images/ltc_hist.png">
+  <img src="images/ltc_boxplots.png">
 </p>
 
 A subsequent Box-Cox transformation tackles the skewness dilemma.
+
+The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
+
+<p align = "center">
+  <img src="images/acf.png">
+</p>
+
+First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary (continuous compound returns):
+
+<p align = "center">
+  <img src="images/differenced_ltc.png">
+</p>
+
+Volatility shocks are calculated by the standard deviation of the return over annualized time:
+
+<p align = "center">
+  <img src="images/ltc_volatility.png">
+</p>
 
 The following models are used:
 * ARIMA(3,1,3)
