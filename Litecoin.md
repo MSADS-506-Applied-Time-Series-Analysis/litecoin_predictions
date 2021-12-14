@@ -256,7 +256,7 @@ new_skew
     ## Volume    2.299834      -0.38318043   Less skewed
     ## Adjusted  1.406507      -0.06325734   Less skewed
 
-## Correlation Table
+## Correlation Matrix
 
 ``` r
 # assign correlation function call to variable
@@ -272,7 +272,7 @@ corrplot(cor_ltc,
 ```
 
 <img src="figs/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
-From the correlation table, it can be discerned that whereas the OHLC
+From the correlation matrix, it can be discerned that whereas the OHLC
 and adjusted prices exhibit multicollinearity at *r* = 1, their
 relationships with volume is much less pronounced, where
 0.56 ≤ *r* ≤ 0.58.
