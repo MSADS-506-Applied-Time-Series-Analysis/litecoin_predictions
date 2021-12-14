@@ -1,6 +1,8 @@
 Appendix
 ================
 
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 # Loading the Necessary Packages (Libraries)
 
 ``` r
@@ -1013,7 +1015,7 @@ model_fitting
     ## 4    50     69.24     0.029979
     ## 
     ## 
-    ## Elapsed time : 0.879848
+    ## Elapsed time : 0.7653661
 
 ``` r
 ##############################################
