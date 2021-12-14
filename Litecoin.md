@@ -297,6 +297,7 @@ fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
 ```
 
 <img src="figs/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+
 | Principal Component | Percent Variance | Percent Change (Delta) |
 |:-------------------:|:----------------:|:----------------------:|
 |          1          |      89.35       |                        |
@@ -556,65 +557,18 @@ rownames <- c('ARIMA(0,1,0)', 'ARIMA(1,1,0)', 'ARIMA(0,1,1)', 'ARIMA(1,1,1)',
 tableARIMA <- data.frame(rownames, sigma_2, LOG, AIC)
 
 colnames(tableARIMA) <- c('Model', 'Sigma^2', ' Log Likelihood', 'AIC')
-tableARIMA %>% pander(style ='grid', 
+tableARIMA %>% pander(style ='simple', 
                       caption='ARIMA Models: Log Likelihood and AIC')
 ```
 
-<table style="width:71%;">
-<caption>ARIMA Models: Log Likelihood and AIC</caption>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 15%" />
-<col style="width: 23%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Model</th>
-<th>Sigma^2</th>
-<th>Log Likelihood</th>
-<th>AIC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>ARIMA(0,1,0)</td>
-<td>0.006817</td>
-<td><pre><code> 2825</code></pre></td>
-<td>-5647</td>
-</tr>
-<tr class="even">
-<td>ARIMA(1,1,0)</td>
-<td>0.005141</td>
-<td><pre><code> 3195</code></pre></td>
-<td>-6386</td>
-</tr>
-<tr class="odd">
-<td>ARIMA(0,1,1)</td>
-<td>0.003416</td>
-<td><pre><code> 3730</code></pre></td>
-<td>-7456</td>
-</tr>
-<tr class="even">
-<td>ARIMA(1,1,1)</td>
-<td>0.003416</td>
-<td><pre><code> 3730</code></pre></td>
-<td>-7454</td>
-</tr>
-<tr class="odd">
-<td>ARIMA(2,1,2)</td>
-<td>0.003416</td>
-<td><pre><code> 3730</code></pre></td>
-<td>-7450</td>
-</tr>
-<tr class="even">
-<td>ARIMA(3,1,2)</td>
-<td>0.003405</td>
-<td><pre><code> 3733</code></pre></td>
-<td>-7453</td>
-</tr>
-</tbody>
-</table>
+|    Model     | Sigma^2  | Log Likelihood |  AIC  |
+|:------------:|:--------:|:--------------:|:-----:|
+| ARIMA(0,1,0) | 0.006817 |      2825      | -5647 |
+| ARIMA(1,1,0) | 0.005141 |      3195      | -6386 |
+| ARIMA(0,1,1) | 0.003416 |      3730      | -7456 |
+| ARIMA(1,1,1) | 0.003416 |      3730      | -7454 |
+| ARIMA(2,1,2) | 0.003416 |      3730      | -7450 |
+| ARIMA(3,1,2) | 0.003405 |      3733      | -7453 |
 
 ARIMA Models: Log Likelihood and AIC
 
@@ -734,7 +688,7 @@ actual_price <- tq_get("LTC-USD", from = "2015-01-01", to = "2021-11-30") %>%
   select(adjusted) %>% ts(.)
 # Plotting forecasted prices against the actual prices
 autoplot(ltc_forecast, xlab='Time (Indexed)',ylab=('Litecoin Adjusted Price')) +
-  autolayer(window(actual_price, start = 2300)) +
+  autolayer(window(actual_price, start = 2300), size=1) +
   theme_classic() +
   theme(legend.position = "") +
   ylim(0, 500)+
@@ -904,31 +858,12 @@ rownames <- c('Metric')
 
 table_vol<- data.frame(rownames, volatility, rolling_window)
 colnames(table_vol)<-c(' ','Annualized Volatility', 'Rolling Window Volatility')
-table_vol %>% pander(style ='grid', caption='Litecoin Volatility of Return')
+table_vol %>% pander(style ='simple', caption='Litecoin Volatility of Return')
 ```
 
-<table style="width:85%;">
-<caption>Litecoin Volatility of Return</caption>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 33%" />
-<col style="width: 38%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Annualized Volatility</th>
-<th>Rolling Window Volatility</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Metric</td>
-<td><pre><code>   0.05838</code></pre></td>
-<td><pre><code>      1.189</code></pre></td>
-</tr>
-</tbody>
-</table>
+|        | Annualized Volatility | Rolling Window Volatility |
+|--------|:---------------------:|:-------------------------:|
+| Metric |        0.05838        |           1.189           |
 
 Litecoin Volatility of Return
 
@@ -1078,7 +1013,7 @@ model_fitting
     ## 4    50     69.24     0.029979
     ## 
     ## 
-    ## Elapsed time : 0.992255
+    ## Elapsed time : 0.879848
 
 ``` r
 ##############################################
