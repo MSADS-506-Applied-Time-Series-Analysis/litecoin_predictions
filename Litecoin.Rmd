@@ -111,7 +111,7 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 
 ## Distributions
 
-```{r, fig.width=10}
+```{r, out.width='85%', out.height='70%'}
 # histogram distributions
 par(mfrow = c(2,3), 
     mar = c(2, 2, 2, 2))
