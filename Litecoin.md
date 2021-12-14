@@ -512,10 +512,10 @@ litecoin_df$Return <- litecoin_df$Close/litecoin_df$Open-1
 litecoin_df$Adj_Return <- litecoin_df$Adjusted/litecoin_df$Open-1
 
 # plot return
-tsplot(litecoin_df$Return, main='Litecoin Return Over Time: 2011-2021',
+tsplot(litecoin_df$Return, main='Litecoin Return Over Time: 2014-2021',
        ylab='Return') 
 # plot adj.return
-tsplot(litecoin_df$Adj_Return, main='Litecoin Adjusted Return: 2011-2021',
+tsplot(litecoin_df$Adj_Return, main='Litecoin Adjusted Return: 2014-2021',
        ylab='Adjusted Return') 
 ```
 
