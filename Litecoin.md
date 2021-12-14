@@ -556,18 +556,65 @@ rownames <- c('ARIMA(0,1,0)', 'ARIMA(1,1,0)', 'ARIMA(0,1,1)', 'ARIMA(1,1,1)',
 tableARIMA <- data.frame(rownames, sigma_2, LOG, AIC)
 
 colnames(tableARIMA) <- c('Model', 'Sigma^2', ' Log Likelihood', 'AIC')
-tableARIMA %>% pander(style ='simple', 
+tableARIMA %>% pander(style ='grid', 
                       caption='ARIMA Models: Log Likelihood and AIC')
 ```
 
-|    Model     | Sigma^2  | Log Likelihood |  AIC  |
-|:------------:|:--------:|:--------------:|:-----:|
-| ARIMA(0,1,0) | 0.006817 |      2825      | -5647 |
-| ARIMA(1,1,0) | 0.005141 |      3195      | -6386 |
-| ARIMA(0,1,1) | 0.003416 |      3730      | -7456 |
-| ARIMA(1,1,1) | 0.003416 |      3730      | -7454 |
-| ARIMA(2,1,2) | 0.003416 |      3730      | -7450 |
-| ARIMA(3,1,2) | 0.003405 |      3733      | -7453 |
+<table style="width:71%;">
+<caption>ARIMA Models: Log Likelihood and AIC</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 23%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Sigma^2</th>
+<th>Log Likelihood</th>
+<th>AIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ARIMA(0,1,0)</td>
+<td>0.006817</td>
+<td><pre><code> 2825</code></pre></td>
+<td>-5647</td>
+</tr>
+<tr class="even">
+<td>ARIMA(1,1,0)</td>
+<td>0.005141</td>
+<td><pre><code> 3195</code></pre></td>
+<td>-6386</td>
+</tr>
+<tr class="odd">
+<td>ARIMA(0,1,1)</td>
+<td>0.003416</td>
+<td><pre><code> 3730</code></pre></td>
+<td>-7456</td>
+</tr>
+<tr class="even">
+<td>ARIMA(1,1,1)</td>
+<td>0.003416</td>
+<td><pre><code> 3730</code></pre></td>
+<td>-7454</td>
+</tr>
+<tr class="odd">
+<td>ARIMA(2,1,2)</td>
+<td>0.003416</td>
+<td><pre><code> 3730</code></pre></td>
+<td>-7450</td>
+</tr>
+<tr class="even">
+<td>ARIMA(3,1,2)</td>
+<td>0.003405</td>
+<td><pre><code> 3733</code></pre></td>
+<td>-7453</td>
+</tr>
+</tbody>
+</table>
 
 ARIMA Models: Log Likelihood and AIC
 
@@ -857,12 +904,31 @@ rownames <- c('Metric')
 
 table_vol<- data.frame(rownames, volatility, rolling_window)
 colnames(table_vol)<-c(' ','Annualized Volatility', 'Rolling Window Volatility')
-table_vol %>% pander(style ='simple', caption='Litecoin Volatility of Return')
+table_vol %>% pander(style ='grid', caption='Litecoin Volatility of Return')
 ```
 
-|        | Annualized Volatility | Rolling Window Volatility |
-|--------|:---------------------:|:-------------------------:|
-| Metric |        0.05838        |           1.189           |
+<table style="width:85%;">
+<caption>Litecoin Volatility of Return</caption>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 33%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Annualized Volatility</th>
+<th>Rolling Window Volatility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Metric</td>
+<td><pre><code>   0.05838</code></pre></td>
+<td><pre><code>      1.189</code></pre></td>
+</tr>
+</tbody>
+</table>
 
 Litecoin Volatility of Return
 
@@ -1012,7 +1078,7 @@ model_fitting
     ## 4    50     69.24     0.029979
     ## 
     ## 
-    ## Elapsed time : 0.9789319
+    ## Elapsed time : 0.992255
 
 ``` r
 ##############################################
@@ -1041,8 +1107,6 @@ plot(model_fitting, which=3)
 ```
 
 <img src="figs/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
-
-**References**
 
 Bischoff, B. & Cockerham, R. (2019, March 31). Adjusted Closing Price
 vs. Closing Price. *Zacks.*  
