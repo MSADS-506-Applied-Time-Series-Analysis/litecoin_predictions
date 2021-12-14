@@ -3,7 +3,7 @@
 </p>
 
 <p align = "center">
-  <img src="images/ltc_adj_price.gif">
+  <img src="images/adj_price_ltc.gif">
 </p>
 
 
