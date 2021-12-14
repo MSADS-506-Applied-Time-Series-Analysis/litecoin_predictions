@@ -24,6 +24,8 @@ knitr::opts_chunk$set(
 
 ```
 
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 # Loading the Necessary Packages (Libraries)
 ```{r, message=FALSE, warning=FALSE}
 # Pack function: install and load more than one  R packages.
@@ -109,7 +111,7 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 
 ## Distributions
 
-```{r, fig.height=3.3}
+```{r, fig.height=4, fig.width=10}
 # histogram distributions
 par(mfrow = c(2,3), 
     mar = c(2, 2, 2, 2))
@@ -166,9 +168,9 @@ new_skew$Skew_Variance <- ifelse(skewValue < skew_transformed, "More skewed",
 new_skew
 ```
 
-## Correlation Table
+## Correlation Matrix
 
-```{r, fig.height=4.4}
+```{r, fig.height=4, fig.width=10}
 # assign correlation function call to variable
 cor_ltc <- cor(litecoin_df) 
 # plot the correlation table (matrix)
@@ -180,7 +182,7 @@ corrplot(cor_ltc,
          addCoef.col = "black", 
          tl.col="black", tl.srt=45, type="lower")
 ```
-From the correlation table, it can be discerned that whereas the OHLC and adjusted prices exhibit multicollinearity at $r=1,$ their relationships with volume is much less pronounced, where $0.56 \leq r \leq 0.58.$
+From the correlation matrix, it can be discerned that whereas the OHLC and adjusted prices exhibit multicollinearity at $r=1,$ their relationships with volume is much less pronounced, where $0.56 \leq r \leq 0.58.$
 
 ## Principal Component Analysis (PCA)
 
@@ -192,7 +194,7 @@ litecoin.pca <- prcomp(litecoin_df, center = TRUE, scale. = TRUE)
 var_explained <- round(litecoin.pca$sdev^2/sum((litecoin.pca$sdev)^2)*100, 4)
 ```
 
-```{r, fig.height=4}
+```{r, fig.height=5, fig.width=10}
 fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
          xlab="Principal Components", 
          ylab = "Percent Variance Explained",
@@ -200,6 +202,7 @@ fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
          linecolor = "blue", addlabels=T,
          ggtheme=theme_classic())
 ```
+
 \begin{center} Table 1: Percent Variance and Change by Principal Component \end{center}
 | Principal Component   | Percent Variance      | Percent Change (Delta) |
 |:---------------------:|:---------------------:|:----------------:|
@@ -213,7 +216,7 @@ fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
 
 Approximately `r round(var_explained[1],2)`% of the variance in the data is explained by the first principal component; thus, the effective dimension is 1. This is supported by and demonstrated in the scree plot and the ensuing table above. The table itself numerically demonstrates the percent variance that is explained by each respective principal component. The scree plot visually depicts "the percentage of the total variance explained by each component" (Kuhn \& Johnson, 2016, p. 38).
 
-```{r, fig.height=3.5}
+```{r, fig.height=4, fig.width=10}
 # create new variable for sole purpose of plotting years on x-axis, not indices
 litecoin_plot <- ts(as.vector(litecoin.ts), start=c(2014), frequency = 365)
 tsplot(litecoin_plot, main='LTC Adjusted Closing Prices (2014 - 2021)',
@@ -237,7 +240,7 @@ For the sample ACF, we have:
 &=&\text{Corr}(X_{t+h,}X_t)
 \end{eqnarray*}
 
-```{r}
+```{r, fig.width=10}
 par(mfrow=c(2,1), oma = c(2,2,0,0) + 0.1, mar = c(1,4,3,1) + 0.1)
 acf(litecoin_df$Adjusted, lag.max=100, main='Litecoin ACF and PACF for Adjusted Prices')
 pacf(litecoin_df$Adjusted, lag.max=100, main='', ylab='PACF')
@@ -258,7 +261,7 @@ We plot the data for the last six years (November 2014 through November 2021).
 
 Next, we smooth the data by introducing the simple moving average (SMA), and exponential moving average (EMA), respectively, weighting the effects by 30 days (one full month).
 
-```{r, fig.height=3.2}
+```{r, fig.height=3, fig.width=10}
 chartSeries(litecoin_df, theme = chartTheme("white"))
 
 addSMA(30) # smoothed out moving average by 30 days
@@ -267,7 +270,7 @@ addEMA(30) # exponential moving average by 30 days
 
 ## Spectral Analysis Cyclical Behavior Periodogram Filters
 
-```{r, fig.width=10, fig.height=2.5}
+```{r, fig.width=10, fig.height=3}
 par(mfrow=c(1,2)); ltcfreq <- mvspec(litecoin.ts,taper=0,log="no") # peaks
 ltcfreq2 <- spec.pgram(litecoin.ts,taper=0,log="yes",
                        main ='Periodogram with CI') # graph confidence interval
@@ -311,14 +314,14 @@ By comparing the different tapering, we can see that having more tapering can sl
 
 # Preprocessing - Differencing
 
-```{r, fig.height=2.3, fig.width=8}
+```{r, fig.width=10, fig.height=3}
 diff_ltc_1 <- diff(log(litecoin_plot))*100
 tsplot(diff_ltc_1, main='Litecoin Continuous Compound Return',ylab='Return in %')
 abline(h=mean(diff_ltc_1),col=6); cat('Mean return:', mean(diff_ltc_1)) 
 ```
 This can be likened to the Dow-Jones Industrial Average (DJIA), which is the differenced data, and shows a mean of zero; this gives it the stationary property.
 
-```{r, fig.height=4}
+```{r, fig.width=10, fig.height=4}
 par(mfrow=c(2,1), oma = c(1,1,0,0) + 0.09, mar = c(1,4,3,0.5) + 0.08)
 acf(diff_ltc_1, lag.max=500, main = 'Differenced Litecoin Adjusted Prices')
 pacf(diff_ltc_1, lag.max=500, main='', ylab='PACF')
@@ -332,16 +335,16 @@ y_t &=& c + 0.3409y_{t-1} -0.3514\varepsilon_{t-1}
 
 where $c = 0.1457 \times (1-0.3409) = 0.096031$ and $\varepsilon_t$ is white noise with a standard deviation of $\sqrt{\sigma^2}=\sqrt{32.77} = 5.725.$
 
-```{r, warning=FALSE, fig.width=10, fig.height=5.2}
+```{r, warning=FALSE, fig.width=10, fig.height=5}
 par(mfrow=c(2,1))
 litecoin_df$Return <- litecoin_df$Close/litecoin_df$Open-1
 litecoin_df$Adj_Return <- litecoin_df$Adjusted/litecoin_df$Open-1
 
 # plot return
-tsplot(litecoin_df$Return, main='Litecoin Return Over Time: 2011-2021',
+tsplot(litecoin_df$Return, main='Litecoin Return Over Time: 2014-2021',
        ylab='Return') 
 # plot adj.return
-tsplot(litecoin_df$Adj_Return, main='Litecoin Adjusted Return: 2011-2021',
+tsplot(litecoin_df$Adj_Return, main='Litecoin Adjusted Return: 2014-2021',
        ylab='Adjusted Return') 
 ```
 
@@ -380,11 +383,11 @@ rownames <- c('ARIMA(0,1,0)', 'ARIMA(1,1,0)', 'ARIMA(0,1,1)', 'ARIMA(1,1,1)',
 tableARIMA <- data.frame(rownames, sigma_2, LOG, AIC)
 
 colnames(tableARIMA) <- c('Model', 'Sigma^2', ' Log Likelihood', 'AIC')
-tableARIMA %>% pander(style ='grid', 
+tableARIMA %>% pander(style ='simple', 
                       caption='ARIMA Models: Log Likelihood and AIC')
 ```
 
-```{r}
+```{r, fig.width=10}
 sarima(litecoin_df$Adj_Return, 3,1,2, details = FALSE) # the model with lowest AIC score
 ```
 
@@ -397,7 +400,7 @@ where $c=0$ and $\varepsilon_t$ is white noise with a standard deviation of $\sq
 
 ## Optimal ARIMA Model
 
-```{r, fig.height=4.5}
+```{r, fig.height=5, fig.width=10}
 ltc.arima_opt <- tq_get("LTC-USD", from ="2015-01-01", to = "2021-09-30") %>%
 select(adjusted) %>% # adjusted price (more accurate than close price)
 ts(.) # turning it into a time series object
@@ -409,7 +412,7 @@ actual_price <- tq_get("LTC-USD", from = "2015-01-01", to = "2021-11-30") %>%
   select(adjusted) %>% ts(.)
 # Plotting forecasted prices against the actual prices
 autoplot(ltc_forecast, xlab='Time (Indexed)',ylab=('Litecoin Adjusted Price')) +
-  autolayer(window(actual_price, start = 2300)) +
+  autolayer(window(actual_price, start = 2300), size=1) +
   theme_classic() +
   theme(legend.position = "") +
   ylim(0, 500)+
@@ -418,7 +421,7 @@ autoplot(ltc_forecast, xlab='Time (Indexed)',ylab=('Litecoin Adjusted Price')) +
 
 ## Diagnostics for Optimal ARIMA Model
 
-```{r}
+```{r, fig.width=10}
 sarima(litecoin_df$Adj_Return, 3,1,3)
 ```
 
@@ -439,7 +442,7 @@ y_t &=& -0.1813y_{t-1} + 0.5661y_{t-2} - -0.0023y_{t-3} - 0.8161 \varepsilon_{t-
 
 ## Calculate Annualized Volatility
 
-```{r, fig.height=4.5}
+```{r, fig.height=5, fig.width=9}
 return = CalculateReturns(ltc_xts$Adjusted)
 return = return[-1,]
 chart.RollingPerformance(R = return, FUN="sd.annualized", scale=365, width=12, 
@@ -452,7 +455,7 @@ rownames <- c('Metric')
 
 table_vol<- data.frame(rownames, volatility, rolling_window)
 colnames(table_vol)<-c(' ','Annualized Volatility', 'Rolling Window Volatility')
-table_vol %>% pander(style ='grid', caption='Litecoin Volatility of Return')
+table_vol %>% pander(style ='simple', caption='Litecoin Volatility of Return')
 
 acf2(return, main='Litecoin Annualized Volatility - ACF and PACF')
 ```
@@ -462,7 +465,7 @@ From the graph above, we can see that the annualized volatility is throughout th
 
 # GARCH Model
 
-```{r, fig.height=6}
+```{r, fig.width=10, fig.height=8}
 model1 = ugarchspec(mean.model = list(armaorder = c(0,0)),
                     variance.model = list(model = "sGARCH", garchorder=c(1,1)),
                     distribution.model='sstd')
@@ -477,7 +480,7 @@ model_fitting
 plot(model_fitting,which="all")
 ```
 
-```{r, fig.height=8.8, fig.width=8}
+```{r, fig.height=9, fig.width=10}
 par(mfrow=c(2,1), 
     oma = c(1.5,0.5,0,0) + 0.10, 
     mar = c(5,4,3,2) -0.10)
