@@ -450,7 +450,7 @@ plot(ltcfreq_taper0$freq, ltcfreq_taper0$spec, log="y", type="l",
 lines(ltcfreq_taper2$freq, ltcfreq_taper2$spec, col=2) 
 lines(ltcfreq_taper5$freq, ltcfreq_taper5$spec, col=4) 
 abline(v=1/16, lty=2) 
-legend("bottomleft", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
+legend("topright", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
        col=c(1,2,4), bty="n")
 ```
 
