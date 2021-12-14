@@ -68,7 +68,7 @@ The sample ACF shows a slow dampening which indicates a long memory process. The
 First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary (continuous compound returns):
 
 <p align = "center">
-  <img src="images/differenced_ltc.gif">
+  <img src="images/diff_ltc.gif">
 </p>
 
 Volatility shocks are calculated by the standard deviation of the return over annualized time:
