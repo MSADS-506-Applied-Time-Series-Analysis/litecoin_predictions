@@ -165,7 +165,7 @@ for (i in 1:ncol(litecoin_df)) {
   }
 ```
 
-<img src="figs/unnamed-chunk-8-1.png" width="85%" height="70%" style="display: block; margin: auto;" />
+<img src="figs/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 ``` r
 # boxplot distributions
@@ -180,7 +180,7 @@ for (i in 1:ncol(litecoin_df)) {
   }
 ```
 
-<img src="figs/unnamed-chunk-8-2.png" width="85%" height="70%" style="display: block; margin: auto;" />
+<img src="figs/unnamed-chunk-8-2.png" style="display: block; margin: auto;" />
 The OHLC (open, high, low, close) and adjusted prices exhibit
 long-tailed distributions with a right skew; so does the volume.
 

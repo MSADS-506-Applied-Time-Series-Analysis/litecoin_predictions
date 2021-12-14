@@ -111,7 +111,7 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 
 ## Distributions
 
-```{r, out.width='85%', out.height='70%'}
+```{r, fig.dim=c(8,4)}
 # histogram distributions
 par(mfrow = c(2,3), 
     mar = c(2, 2, 2, 2))
@@ -170,7 +170,7 @@ new_skew
 
 ## Correlation Matrix
 
-```{r, fig.height=4, fig.width=10}
+```{r, fig.dim=c(9,5)}
 # assign correlation function call to variable
 cor_ltc <- cor(litecoin_df) 
 # plot the correlation table (matrix)
@@ -194,7 +194,7 @@ litecoin.pca <- prcomp(litecoin_df, center = TRUE, scale. = TRUE)
 var_explained <- round(litecoin.pca$sdev^2/sum((litecoin.pca$sdev)^2)*100, 4)
 ```
 
-```{r, fig.height=5, fig.width=10}
+```{r, fig.dim=c(9,5)}
 fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
          xlab="Principal Components", 
          ylab = "Percent Variance Explained",
