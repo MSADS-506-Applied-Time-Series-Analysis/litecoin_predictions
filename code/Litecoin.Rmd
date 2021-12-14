@@ -261,7 +261,7 @@ We plot the data for the last six years (November 2014 through November 2021).
 
 Next, we smooth the data by introducing the simple moving average (SMA), and exponential moving average (EMA), respectively, weighting the effects by 30 days (one full month).
 
-```{r, fig.height=5, fig.width=10}
+```{r, fig.height=4, fig.width=10}
 chartSeries(litecoin_df, theme = chartTheme("white"))
 
 addSMA(30) # smoothed out moving average by 30 days
