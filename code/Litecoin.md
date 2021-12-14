@@ -450,7 +450,7 @@ plot(ltcfreq_taper0$freq, ltcfreq_taper0$spec, log="y", type="l",
 lines(ltcfreq_taper2$freq, ltcfreq_taper2$spec, col=2) 
 lines(ltcfreq_taper5$freq, ltcfreq_taper5$spec, col=4) 
 abline(v=1/16, lty=2) 
-legend("bottomleft", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
+legend("topright", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
        col=c(1,2,4), bty="n")
 ```
 
@@ -1013,7 +1013,7 @@ model_fitting
     ## 4    50     69.24     0.029979
     ## 
     ## 
-    ## Elapsed time : 1.222795
+    ## Elapsed time : 1.167875
 
 ``` r
 ##############################################
@@ -1042,6 +1042,8 @@ plot(model_fitting, which=3)
 ```
 
 <img src="figs/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
+
+**References**
 
 Bischoff, B. & Cockerham, R. (2019, March 31). Adjusted Closing Price
 vs. Closing Price. *Zacks.*  

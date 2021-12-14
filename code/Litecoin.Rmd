@@ -111,7 +111,7 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 
 ## Distributions
 
-```{r, fig.dim=c(8,4)}
+```{r, fig.width=10}
 # histogram distributions
 par(mfrow = c(2,3), 
     mar = c(2, 2, 2, 2))
@@ -170,7 +170,7 @@ new_skew
 
 ## Correlation Matrix
 
-```{r, fig.dim=c(9,5)}
+```{r, fig.dim=c(10,5)}
 # assign correlation function call to variable
 cor_ltc <- cor(litecoin_df) 
 # plot the correlation table (matrix)
@@ -194,7 +194,7 @@ litecoin.pca <- prcomp(litecoin_df, center = TRUE, scale. = TRUE)
 var_explained <- round(litecoin.pca$sdev^2/sum((litecoin.pca$sdev)^2)*100, 4)
 ```
 
-```{r, fig.dim=c(9,5)}
+```{r, fig.dim=c(10,5)}
 fviz_eig(litecoin.pca, main="Scree Plot of Six Principal Components",
          xlab="Principal Components", 
          ylab = "Percent Variance Explained",
@@ -261,7 +261,7 @@ We plot the data for the last six years (November 2014 through November 2021).
 
 Next, we smooth the data by introducing the simple moving average (SMA), and exponential moving average (EMA), respectively, weighting the effects by 30 days (one full month).
 
-```{r, fig.height=3, fig.width=10}
+```{r, fig.height=4, fig.width=10}
 chartSeries(litecoin_df, theme = chartTheme("white"))
 
 addSMA(30) # smoothed out moving average by 30 days
@@ -306,7 +306,7 @@ plot(ltcfreq_taper0$freq, ltcfreq_taper0$spec, log="y", type="l",
 lines(ltcfreq_taper2$freq, ltcfreq_taper2$spec, col=2) 
 lines(ltcfreq_taper5$freq, ltcfreq_taper5$spec, col=4) 
 abline(v=1/16, lty=2) 
-legend("bottomleft", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
+legend("topright", legend=c("no taper", "20% taper", "50% taper"), lty=1, 
        col=c(1,2,4), bty="n")
 ```
 
@@ -314,7 +314,7 @@ By comparing the different tapering, we can see that having more tapering can sl
 
 # Preprocessing - Differencing
 
-```{r, fig.width=7, fig.height=3}
+```{r, fig.width=10, fig.height=3}
 diff_ltc_1 <- diff(log(litecoin_plot))*100
 tsplot(diff_ltc_1, main='Litecoin Continuous Compound Return',ylab='Return in %')
 abline(h=mean(diff_ltc_1),col=6); cat('Mean return:', mean(diff_ltc_1)) 
@@ -442,7 +442,7 @@ y_t &=& -0.1813y_{t-1} + 0.5661y_{t-2} - -0.0023y_{t-3} - 0.8161 \varepsilon_{t-
 
 ## Calculate Annualized Volatility
 
-```{r, fig.height=5, fig.width=9}
+```{r, fig.height=5, fig.width=10}
 return = CalculateReturns(ltc_xts$Adjusted)
 return = return[-1,]
 chart.RollingPerformance(R = return, FUN="sd.annualized", scale=365, width=12, 
@@ -488,7 +488,7 @@ plot(model_fitting, which=2)
 plot(model_fitting, which=3)
 ```
 
-\begin{center}\textbf{References}\end{center}
+**References**
 
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
