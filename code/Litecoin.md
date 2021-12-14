@@ -1043,6 +1043,8 @@ plot(model_fitting, which=3)
 
 <img src="figs/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
 
+**References**
+
 Bischoff, B. & Cockerham, R. (2019, March 31). Adjusted Closing Price
 vs. Closing Price. *Zacks.*  
 <https://finance.zacks.com/adjusted-closing-price-vs-closing-price-9991.html>

@@ -442,7 +442,7 @@ y_t &=& -0.1813y_{t-1} + 0.5661y_{t-2} - -0.0023y_{t-3} - 0.8161 \varepsilon_{t-
 
 ## Calculate Annualized Volatility
 
-```{r, fig.height=5, fig.width=9}
+```{r, fig.height=5, fig.width=10}
 return = CalculateReturns(ltc_xts$Adjusted)
 return = return[-1,]
 chart.RollingPerformance(R = return, FUN="sd.annualized", scale=365, width=12, 
@@ -488,7 +488,7 @@ plot(model_fitting, which=2)
 plot(model_fitting, which=3)
 ```
 
-\begin{center}\textbf{References}\end{center}
+**References**
 
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
