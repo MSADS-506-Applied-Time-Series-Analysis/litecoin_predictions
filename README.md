@@ -57,7 +57,7 @@ For exploratory data analysis, we check the distribution of data using histogram
   <img src="images/ltc_boxplots.png">
 </p>
 
-A subsequent Box-Cox transformation tackles the skewness dilemma.
+A subsequent Box-Cox transformation tackles the skewness dilemma. However, such transformation is only done for exploratory purposes.
 
 The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
 
