@@ -74,7 +74,7 @@ First order differencing is a pre-processing step necessary for converting the n
 Volatility shocks are calculated by the standard deviation of the return over annualized time:
 
 <p align = "center">
-  <img src="images/annualized_volatility_LTC.gif">
+  <img src="images/anlzd_volatility_LTC.gif">
 </p>
 
 The following models are used:
