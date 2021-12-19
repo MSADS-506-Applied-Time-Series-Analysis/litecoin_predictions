@@ -1,5 +1,7 @@
-Appendix
+Litecoin Cryptocurrency Forecast – Variations on the Autoregressive
+Moving Average Model: A Time Series Analysis
 ================
+Leonid Shpaner, Dingyi Duan
 
 # Loading the Necessary Packages (Libraries)
 
@@ -160,7 +162,7 @@ options(scipen=999)
 
 for (i in 1:ncol(litecoin_df)) {
     hist(litecoin_df[,i],
-    xlab = names(litecoin_df[i]), 
+    xlab = names(litecoin_df[i]), ylim=c(0,1600),
     main = paste(names(litecoin_df[i]), "- Histogram"), 
     col="gray60")
   }
