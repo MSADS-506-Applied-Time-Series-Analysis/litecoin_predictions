@@ -114,18 +114,19 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 ```{r, fig.width=10}
 # histogram distributions
 par(mfrow = c(2,3), 
-    mar = c(2, 2, 2, 2))
+    mar = c(2, 2, 5, 2))
+options(scipen=999)
 
 for (i in 1:ncol(litecoin_df)) {
     hist(litecoin_df[,i],
     xlab = names(litecoin_df[i]), 
-    main = paste(names(litecoin_df[i]), " - Histogram"), 
+    main = paste(names(litecoin_df[i]), "- Histogram"), 
     col="gray60")
   }
 
 # boxplot distributions
 par(mfrow = c(2, 3),
-    mar = c(2, 2, 2, 2))
+    mar = c(2, 2, 5, 2))
 
 for (i in 1:ncol(litecoin_df)) {
     boxplot(litecoin_df[,i],
@@ -170,7 +171,7 @@ new_skew
 
 ## Correlation Matrix
 
-```{r, fig.dim=c(10,5)}
+```{r, fig.dim=c(10,5), warning=FALSE}
 # assign correlation function call to variable
 cor_ltc <- cor(litecoin_df) 
 # plot the correlation table (matrix)

@@ -155,12 +155,13 @@ summary(litecoin_df[,6]) # summary stats of adjusted close prices
 ``` r
 # histogram distributions
 par(mfrow = c(2,3), 
-    mar = c(2, 2, 2, 2))
+    mar = c(2, 2, 5, 2))
+options(scipen=999)
 
 for (i in 1:ncol(litecoin_df)) {
     hist(litecoin_df[,i],
     xlab = names(litecoin_df[i]), 
-    main = paste(names(litecoin_df[i]), " - Histogram"), 
+    main = paste(names(litecoin_df[i]), "- Histogram"), 
     col="gray60")
   }
 ```
@@ -170,7 +171,7 @@ for (i in 1:ncol(litecoin_df)) {
 ``` r
 # boxplot distributions
 par(mfrow = c(2, 3),
-    mar = c(2, 2, 2, 2))
+    mar = c(2, 2, 5, 2))
 
 for (i in 1:ncol(litecoin_df)) {
     boxplot(litecoin_df[,i],
