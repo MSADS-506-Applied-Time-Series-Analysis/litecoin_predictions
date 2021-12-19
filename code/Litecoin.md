@@ -2,7 +2,6 @@ Litecoin Cryptocurrency Forecast – Variations on the Autoregressive
 Moving Average Model: A Time Series Analysis
 ================
 Leonid Shpaner, Dingyi Duan
-November 30, 2021
 
 # Loading the Necessary Packages (Libraries)
 
