@@ -1,9 +1,9 @@
 <p align = "center">
-  <img src="images/ltc_logo.png" = width="150" height="150">
+  <img src="images/ltc_logo.png" width="150" height="150">
 </p>
 
 <p align = "center">
-  <img src="images/ltc_adj.gif">
+  <img src="images/adj_price_ltc.gif">
 </p>
 
 
@@ -57,7 +57,7 @@ For exploratory data analysis, we check the distribution of data using histogram
   <img src="images/ltc_boxplots.png">
 </p>
 
-A subsequent Box-Cox transformation tackles the skewness dilemma.
+A subsequent Box-Cox transformation tackles the skewness dilemma. However, such transformation is only done for exploratory purposes.
 
 The sample ACF shows a slow dampening which indicates a long memory process. The presence of non-stationarity can be established visa vie trend alone.
 
@@ -68,13 +68,13 @@ The sample ACF shows a slow dampening which indicates a long memory process. The
 First order differencing is a pre-processing step necessary for converting the non-stationary time series object into one that is stationary (continuous compound returns):
 
 <p align = "center">
-  <img src="images/differenced_ltc.png">
+  <img src="images/diff_ltc.gif">
 </p>
 
 Volatility shocks are calculated by the standard deviation of the return over annualized time:
 
 <p align = "center">
-  <img src="images/ltc_volatility.png">
+  <img src="images/volatility_ltc.gif">
 </p>
 
 The following models are used:
