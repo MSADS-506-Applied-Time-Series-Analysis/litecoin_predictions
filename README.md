@@ -54,7 +54,7 @@ For exploratory data analysis, we check the distribution of data using histogram
 
 <p align = "center">
   <img src="images/hist_ltc.png">
-  <img src="images/boxplots_ltc.png">
+  <img src="images/bplots_ltc.png">
 </p>
 
 A subsequent Box-Cox transformation tackles the skewness dilemma. However, such transformation is only done for exploratory purposes.
