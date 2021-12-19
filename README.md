@@ -53,8 +53,8 @@ The data is presented as a time series object which is subsequently converted in
 For exploratory data analysis, we check the distribution of data using histograms and boxplots as follows.
 
 <p align = "center">
-  <img src="images/hist_ltc.png">
-  <img src="images/bplots_ltc.png">
+  <img src="images/histograms_LTC.png">
+  <img src="images/boxplots_LTC.png">
 </p>
 
 A subsequent Box-Cox transformation tackles the skewness dilemma. However, such transformation is only done for exploratory purposes.
